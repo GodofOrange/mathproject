@@ -35,4 +35,15 @@ public class OccupationController {
             return false;
         }
     }
+
+    @ApiOperation(value = "删除用户资格种类")
+    @GetMapping("/deleteOccupation")
+    public Boolean deleteOccupationById(Integer id){
+        try {
+            occupationService.deleteOccupationById(id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
 }

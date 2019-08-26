@@ -18,6 +18,7 @@ import java.util.List;
 public class AdvertisementController {
     @Autowired
     AdvertisementService advertisementService;
+
     @ApiOperation(value ="获得所有广告")
     @GetMapping("/getAllAdvertisement")
     public List<Advertisement> getAllAdvertisement(){

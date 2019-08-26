@@ -25,4 +25,7 @@ public class OccupationService {
         occupation.setJob(job);
         occupationResp.save(occupation);
     }
+    public void deleteOccupationById(Integer id){
+        occupationResp.deleteById(id);
+    }
 }
