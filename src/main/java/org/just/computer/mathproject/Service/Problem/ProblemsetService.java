@@ -23,4 +23,8 @@ public class ProblemsetService {
         problemset.setEnabled(enabled);
         problemsetResp.save(problemset);
     }
+
+    public void deleteProblemsetById(Integer id){
+        problemsetResp.deleteById(id);
+    }
 }

@@ -34,4 +34,15 @@ public class AdvertisementController {
             return false;
         }
     }
+
+    @ApiOperation(value = "删除广告")
+    @GetMapping("/deleteAdvertisement")
+    public Boolean deleteAdvertisementById(Integer id){
+       try{
+           advertisementService.deleteAdvertisementById(id);
+           return true;
+       }catch (Exception e){
+           return false;
+       }
+    }
 }

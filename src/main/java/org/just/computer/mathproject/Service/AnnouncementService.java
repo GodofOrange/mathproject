@@ -23,4 +23,7 @@ public class AnnouncementService {
         announcement.setTime(new Date());
         announcementResp.save(announcement);
     }
+    public void deleteAnnouncementById(Integer id){
+        announcementResp.deleteById(id);
+    }
 }

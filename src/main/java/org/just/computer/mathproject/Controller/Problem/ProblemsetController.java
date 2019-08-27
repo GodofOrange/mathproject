@@ -35,4 +35,15 @@ public class ProblemsetController {
             return false;
         }
     }
+
+    @ApiOperation(value = "删除题目")
+    @GetMapping("/deleteProblemset")
+    public Boolean deleProblemsetById(Integer id){
+        try{
+            problemsetService.deleteProblemsetById(id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
 }

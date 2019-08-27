@@ -23,11 +23,23 @@ public class AnnouncementController {
     public List<Announcement> getAllAnnouncement(){
         return announcementService.getAllAnnouncement();
     }
+
     @ApiOperation(value = "添加公告")
     @GetMapping("/addAnnouncement")
     public Boolean getAllAnnouncement(@RequestParam String title,@RequestParam String content){
         try {
             announcementService.addAnnouncement(title,content);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    @ApiOperation(value = "删除公告")
+    @GetMapping("/deleteAnnouncement")
+    public Boolean deleteAnnouncementById(Integer id){
+        try{
+            announcementService.deleteAnnouncementById(id);
             return true;
         }catch (Exception e){
             return false;
