@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiOperation;
 import org.just.computer.mathproject.Entity.Problem.Problemset;
 import org.just.computer.mathproject.Service.Problem.problem_beans_services.ProblemSet_ProblemClassify_Beans_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
