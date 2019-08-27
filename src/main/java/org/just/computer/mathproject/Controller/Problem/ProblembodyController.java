@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @Api(tags ="题目主体")
-@RequestMapping("/ProblembodyController/")
+@RequestMapping("/Problembody/")
 public class ProblembodyController {
     @Autowired
     ProblembodyService problembodyService;
