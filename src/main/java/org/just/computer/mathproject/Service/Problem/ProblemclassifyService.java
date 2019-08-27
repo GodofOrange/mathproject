@@ -1,7 +1,7 @@
 package org.just.computer.mathproject.Service.Problem;
 
 import org.just.computer.mathproject.DAO.Problem.ProblemclassifyResp;
-import org.just.computer.mathproject.Entity.Problem.Problemclassify;
+import org.just.computer.mathproject.Entity.Problem.ProblemClassify;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +12,12 @@ public class ProblemclassifyService {
     @Autowired
     ProblemclassifyResp problemclassifyResp;
 
-    public List<Problemclassify> getAllProblemclassify() {
+    public List<ProblemClassify> getAllProblemclassify() {
         return problemclassifyResp.findAll();
     }
 
     public void addProblemclassify(String title) {
-       Problemclassify problemclassify=new Problemclassify();
+       ProblemClassify problemclassify=new ProblemClassify();
        problemclassify.setTitle(title);
        problemclassifyResp.save(problemclassify);
     }

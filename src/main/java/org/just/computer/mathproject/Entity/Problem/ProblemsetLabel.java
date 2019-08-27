@@ -6,7 +6,7 @@ import javax.persistence.*;
  * 标签题目关系表
  */
 @Entity(name="Problemsetlabel")
-public class Problemsetlabel {
+public class ProblemsetLabel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",columnDefinition="bigint COMMENT '主键，自动生成'")

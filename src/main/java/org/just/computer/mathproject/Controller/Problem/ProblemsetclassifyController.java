@@ -2,7 +2,7 @@ package org.just.computer.mathproject.Controller.Problem;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.just.computer.mathproject.Entity.Problem.Problemsetclassify;
+import org.just.computer.mathproject.Entity.Problem.ProblemsetClassify;
 import org.just.computer.mathproject.Service.Problem.ProblemsetclassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +21,7 @@ public class ProblemsetclassifyController {
 
     @ApiOperation(value ="获得所有题目分类关系")
     @GetMapping("/getAllProblemsetclassify")
-    public List<Problemsetclassify> getAllProblemsetclassify(){
+    public List<ProblemsetClassify> getAllProblemsetclassify(){
         return problemsetclassifyService.getAllProblemsetclassify();
     }
 
