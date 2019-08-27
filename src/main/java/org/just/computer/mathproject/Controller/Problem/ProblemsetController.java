@@ -27,7 +27,7 @@ public class ProblemsetController {
 
     @ApiOperation(value = "添加题目")
     @GetMapping("/addProblemset")
-    public Boolean getAllProblemset(@RequestParam String title, @RequestParam Integer level,@RequestParam Integer enabled){
+    public Boolean getAllProblemset(@RequestParam String title, @RequestParam String level,@RequestParam Integer enabled){
         try {
             problemsetService.addProblemset(title,level,enabled);
             return true;

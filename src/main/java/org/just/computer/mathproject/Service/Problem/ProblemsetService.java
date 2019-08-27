@@ -16,7 +16,7 @@ public class ProblemsetService {
         return problemsetResp.findAll();
     }
 
-    public void addProblemset(String title, Integer level, Integer enabled) {
+    public void addProblemset(String title, String level, Integer enabled) {
         Problemset problemset = new Problemset();
         problemset.setTitle(title);
         problemset.setLevel(level);
