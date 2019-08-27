@@ -40,7 +40,7 @@ public class ProblembodyController {
 
     @ApiOperation(value = "删除题目主体")
     @GetMapping("/deleteProblembody")
-    public Boolean deleProblembodyById(Integer id){
+    public Boolean deleteProblembodyById(Integer id){
         try{
             problembodyService.deleteProblembodyById(id);
             return true;
