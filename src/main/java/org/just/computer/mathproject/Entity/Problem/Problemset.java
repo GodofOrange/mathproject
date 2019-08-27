@@ -12,8 +12,8 @@ public class Problemset {
     private Integer id;
     @Column(name = "title",columnDefinition="varchar(32)")
     private String title;
-    @Column(name = "level",columnDefinition="tinyint(1)")
-    private Integer level;
+    @Column(name = "level",columnDefinition="varchar(32)")
+    private String level;
     @Column(name = "enabled",columnDefinition="tinyint(1)")
     private Integer enabled;
 
@@ -33,11 +33,11 @@ public class Problemset {
         this.title = title;
     }
 
-    public Integer getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(Integer level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 
