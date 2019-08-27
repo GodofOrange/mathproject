@@ -4,7 +4,7 @@ import javax.persistence.*;
 /**
  * 题目主体表
  */
-@Entity(name="Problembody ")
+@Entity(name="Problembody")
 public class Problembody {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +16,8 @@ public class Problembody {
     private String body;
     @Column(name = "answer",columnDefinition="text")
     private String answer;
-    @Column(name = "kind",columnDefinition = "tinyint(1)")
-    private Integer kind;
+    @Column(name = "kind",columnDefinition = "varchar(32)")
+    private String kind;
 
     public Integer getId() {
         return id;
@@ -51,11 +51,11 @@ public class Problembody {
         this.answer = answer;
     }
 
-    public Integer getKind() {
+    public String getKind() {
         return kind;
     }
 
-    public void setKind(Integer kind) {
+    public void setKind(String kind) {
         this.kind = kind;
     }
 }
