@@ -24,6 +24,12 @@ public class ProblembodyController {
     public List<Problembody> getAllProblembody(){
         return problembodyService.getAllProblembody();
     }
+
+    @ApiOperation(value ="获得单个题目主体")
+    @GetMapping("/getProblembody")
+    public Problembody getProblembody(Integer id){
+        return problembodyService.getProblembodyById(id);
+    }
     @ApiOperation(value = "添加题目主体")
     @GetMapping("/addProblembody")
     public Boolean getAllProblembody(@RequestParam Integer problemsetid,@RequestParam String body,@RequestParam String answer,@RequestParam String kind){

@@ -16,6 +16,10 @@ public class ProblembodyService {
         return problembodyResp.findAll();
     }
 
+    public Problembody getProblembodyById(Integer id){
+        return problembodyResp.findByIdEquals(id);
+    }
+
     public void addProblembody(Integer problemsetid,String body,String answer,String kind){
         Problembody problembody=new Problembody();
         problembody.setProblemsetid(problemsetid);
