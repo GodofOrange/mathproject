@@ -17,7 +17,7 @@ public class ProblembodyService {
     }
 
     public Problembody getProblembodyById(Integer id){
-        return problembodyResp.findByIdEquals(id);
+        return problembodyResp.findByProblemsetidEquals(id);
     }
 
     public void addProblembody(Integer problemsetid,String body,String answer,String kind){

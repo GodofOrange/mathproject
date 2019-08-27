@@ -10,7 +10,7 @@ public class Problembody {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",columnDefinition="bigint COMMENT '主键，自动生成'")
     private Integer id;
-    @Column(name = "problemsetid",columnDefinition="bigint ")
+    @Column(name = "problemsetid",columnDefinition="bigint ",unique = true)
     private Integer problemsetid;
     @Column(name = "body",columnDefinition="longtext")
     private String body;

@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import org.just.computer.mathproject.Entity.Problem.Problembody;
 import org.just.computer.mathproject.Service.Problem.ProblembodyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,7 +28,7 @@ public class ProblembodyController {
         return problembodyService.getProblembodyById(id);
     }
     @ApiOperation(value = "添加题目主体")
-    @GetMapping("/addProblembody")
+    @PostMapping("/addProblembody")
     public Boolean getAllProblembody(@RequestParam Integer problemsetid,@RequestParam String body,@RequestParam String answer,@RequestParam String kind){
         try {
             problembodyService.addProblembody(problemsetid,body,answer,kind);
