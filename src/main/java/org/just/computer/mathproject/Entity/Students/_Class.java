@@ -6,7 +6,7 @@ import javax.persistence.*;
  * 班级表
  */
 @Entity(name="Class")
-public class Class {
+public class _Class {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",columnDefinition="bigint COMMENT '主键，自动生成'")
