@@ -38,7 +38,7 @@ public class ClassController {
 
     @ApiOperation(value = "删除班级")
     @GetMapping("/deleteClass")
-    public Boolean deleteProblemsetById(Integer id){
+    public Boolean deleteClassById(Integer id){
         try{
            classService.deleteclassById(id);
             return true;
