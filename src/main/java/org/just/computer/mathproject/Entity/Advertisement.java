@@ -2,6 +2,9 @@ package org.just.computer.mathproject.Entity;
 
 import javax.persistence.*;
 
+/**
+ * 广告表
+ */
 @Entity(name="Advertisement")
 public class Advertisement {
     @Id

@@ -1,7 +1,9 @@
 package org.just.computer.mathproject.Entity.Problem;
 
 import javax.persistence.*;
-
+/**
+ * 题目表
+ */
 @Entity(name="Problemset")
 public class Problemset {
     @Id
