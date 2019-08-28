@@ -9,7 +9,7 @@ public class User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",columnDefinition="bigint COMMENT '主键，自动生成'")
     private Integer id;
-    @Column(columnDefinition="varchar(255)")
+    @Column(columnDefinition="varchar(255)",unique = true)
     private String username;
     @Column(columnDefinition="varchar(255)")
     private String password;

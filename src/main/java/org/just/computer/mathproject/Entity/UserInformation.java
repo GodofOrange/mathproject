@@ -11,9 +11,9 @@ public class UserInformation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",columnDefinition="bigint COMMENT '主键，自动生成'")
     private Integer id;
-    @Column(name = "userid",columnDefinition="bigint")
+    @Column(name = "userid",unique = true,columnDefinition="bigint")
     private Integer userid;
-    @Column(name = "img",columnDefinition="varchar(255)")
+    @Column(name = "img",columnDefinition="text")
     private String img;
     @Column(name = "signature",columnDefinition="varchar(255)")
     private String signature;
