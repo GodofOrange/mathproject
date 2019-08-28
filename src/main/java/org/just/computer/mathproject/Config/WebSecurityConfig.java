@@ -5,7 +5,6 @@ import org.just.computer.mathproject.Service.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.authentication.*;
@@ -54,6 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").permitAll()
                 .and()
                 .authorizeRequests()
+                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .and()
                 .formLogin()
                 .loginProcessingUrl("/login").permitAll()
@@ -103,6 +103,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     }
                 }).permitAll().and().cors()
                 .and()
-                .csrf().disable();
+                .csrf()
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).disable();
     }
 }
