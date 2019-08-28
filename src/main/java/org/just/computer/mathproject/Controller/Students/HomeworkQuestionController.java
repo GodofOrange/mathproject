@@ -37,7 +37,7 @@ public class HomeworkQuestionController {
     }
 
     @ApiOperation(value = "删除作业问题")
-    @GetMapping("/deleteHomeworkQuesyion")
+    @GetMapping("/deleteHomeworkQuestion")
     public Boolean deleteHomeworkQuestionById(Integer id){
         try{
             homeworkQuestionService.deleteHomeworkQuestionById(id);
