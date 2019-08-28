@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@Api(tags ="题目/")
+@Api(tags ="题目/管理员")
 @RequestMapping("/ProblemSet_ProblemBody_Controller/")
 public class ProblemSet_ProblemBody_Controller {
     @Autowired
