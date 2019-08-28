@@ -2,7 +2,6 @@ package org.just.computer.mathproject.Controller.Comment;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.just.computer.mathproject.Entity.Article.Article;
 import org.just.computer.mathproject.Entity.Comment.ProblemComment;
 import org.just.computer.mathproject.Service.Comment.ProblemCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +24,9 @@ public class ProblemCommentController {
 
     @ApiOperation(value = "添加问题评论")
     @PostMapping("/addProblemComment")
-    public Boolean getAllProblemComment(@RequestParam String content, @RequestParam String username, @RequestParam Integer problemid){
+    public Boolean getAllProblemComment(@RequestParam String content, @RequestParam String username, @RequestParam Integer problemsetid){
         try {
-            problemCommentService.addProblemComment(content,username,problemid);
+            problemCommentService.addProblemComment(content,username,problemsetid);
             return true;
         }catch (Exception e){
             return false;
