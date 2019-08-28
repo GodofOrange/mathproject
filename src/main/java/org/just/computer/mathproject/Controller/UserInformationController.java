@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Api(tags = "用户信息")
@@ -37,18 +38,18 @@ public class UserInformationController {
 
     @ApiOperation(value = "改变用户信息")
     @PostMapping("/updateUserInformation")
-    public Boolean updateUserInformation(Principal pl,
-                                         @RequestParam String img,
-                                         @RequestParam String signature,
-                                         @RequestParam String QQ,
-                                         @RequestParam String iphone,
-                                         @RequestParam String email,
-                                         @RequestParam String grade,
-                                         @RequestParam String major,
-                                         @RequestParam String university,
-                                         @RequestParam String college){
+    public Boolean updateUserInformation(Principal pl, @RequestBody Map<String,Object> params){
         try{
-            userInformationService.updateUserInformation(pl,img,signature,QQ,iphone,email,grade,major,university,college);
+            userInformationService.updateUserInformation(pl,
+                    params.get("img").toString(),
+                    params.get("signature").toString(),
+                    params.get("qq").toString(),
+                    params.get("iphone").toString(),
+                    params.get("email").toString(),
+                    params.get("grade").toString(),
+                    params.get("major").toString(),
+                    params.get("university").toString(),
+                    params.get("college").toString());
             return true;
         }
         catch (Exception e){

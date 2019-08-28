@@ -13,7 +13,7 @@ public class UserInformation {
     private Integer id;
     @Column(name = "userid",unique = true,columnDefinition="bigint")
     private Integer userid;
-    @Column(name = "img",columnDefinition="text")
+    @Column(name = "img",columnDefinition="longtext")
     private String img;
     @Column(name = "signature",columnDefinition="varchar(255)")
     private String signature;
