@@ -38,7 +38,7 @@ public class ProblemsetclassifyController {
 
     @ApiOperation(value = "删除题目分类关系")
     @GetMapping("/deleteProblemsetclassify")
-    public Boolean deleProblemsetclassifyById(Integer id){
+    public Boolean deleteProblemsetclassifyById(Integer id){
         try{
             problemsetclassifyService.deleteProblemsetclassifyById(id);
             return true;

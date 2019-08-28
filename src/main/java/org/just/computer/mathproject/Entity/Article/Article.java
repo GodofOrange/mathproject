@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 文章表
  */
-@Entity(name="Article ")
+@Entity(name="Article")
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

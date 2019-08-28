@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 问题表
  */
-@Entity(name="Question ")
+@Entity(name="Question")
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
