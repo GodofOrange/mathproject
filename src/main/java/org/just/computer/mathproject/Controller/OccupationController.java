@@ -19,11 +19,13 @@ import java.util.List;
 public class OccupationController {
     @Autowired
     OccupationService occupationService;
+
     @ApiOperation(value = "获得所有用户资格种类")
     @GetMapping("/getAllOccupation")
     public List<Occupation> getAllOccupation(){
         return occupationService.getAllOccupation();
     }
+
     @ApiOperation(value = "添加用户资格种类")
     @GetMapping("/addOccupation")
     public Boolean getAllOccupation(@RequestParam String job){

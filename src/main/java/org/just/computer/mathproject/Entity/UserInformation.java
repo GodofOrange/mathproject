@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * 用户信息表
  */
-@Entity(name = "UserInformation ")
+@Entity(name = "UserInformation")
 public class UserInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
