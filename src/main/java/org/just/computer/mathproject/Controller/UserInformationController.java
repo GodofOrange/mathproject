@@ -73,7 +73,7 @@ public class UserInformationController {
         try {
             return userInformationService.getUserInfomationByUsername(pl);
         }catch (Exception e){
-            return new UserInformation();
+            return null;
         }
     }
 }
