@@ -1,6 +1,5 @@
 package org.just.computer.mathproject.Service;
 
-import io.swagger.models.auth.In;
 import org.just.computer.mathproject.DAO.AdvertisementResp;
 import org.just.computer.mathproject.Entity.Advertisement;
 import org.springframework.beans.factory.annotation.Autowired;
