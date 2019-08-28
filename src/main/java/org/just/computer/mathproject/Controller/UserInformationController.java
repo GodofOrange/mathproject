@@ -2,7 +2,6 @@ package org.just.computer.mathproject.Controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.just.computer.mathproject.Entity.Occupation;
 import org.just.computer.mathproject.Entity.UserInformation;
 import org.just.computer.mathproject.Service.UserInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
