@@ -6,11 +6,9 @@ import org.just.computer.mathproject.Entity.Occupation;
 import org.just.computer.mathproject.Entity.UserInformation;
 import org.just.computer.mathproject.Service.UserInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -27,10 +25,31 @@ public class UserInformationController {
     }
 
     @ApiOperation(value = "添加用户信息")
-    @GetMapping("/addUserInformation")
-    public Boolean getAllUserInformation(@RequestParam Integer userid,@RequestParam String img,@RequestParam String signature,@RequestParam String QQ,@RequestParam String iphone,@RequestParam String email,@RequestParam String grade,@RequestParam String major,@RequestParam String university,@RequestParam String college){
+    @PostMapping("/addUserInformation")
+    public Boolean getAllUserInformation(Principal pl,@RequestParam String img,@RequestParam String signature,@RequestParam String QQ,@RequestParam String iphone,@RequestParam String email,@RequestParam String grade,@RequestParam String major,@RequestParam String university,@RequestParam String college){
         try{
-            userInformationService.addUserInformation(userid,img,signature,QQ,iphone,email,grade,major,university,college);
+            userInformationService.addUserInformation(pl,img,signature,QQ,iphone,email,grade,major,university,college);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
+    @ApiOperation(value = "改变用户信息")
+    @PostMapping("/updateUserInformation")
+    public Boolean updateUserInformation(Principal pl,
+                                         @RequestParam String img,
+                                         @RequestParam String signature,
+                                         @RequestParam String QQ,
+                                         @RequestParam String iphone,
+                                         @RequestParam String email,
+                                         @RequestParam String grade,
+                                         @RequestParam String major,
+                                         @RequestParam String university,
+                                         @RequestParam String college){
+        try{
+            userInformationService.updateUserInformation(pl,img,signature,QQ,iphone,email,grade,major,university,college);
             return true;
         }
         catch (Exception e){
@@ -46,6 +65,15 @@ public class UserInformationController {
             return true;
         }catch (Exception e){
             return false;
+        }
+    }
+    @ApiOperation(value = "获取我的信息")
+    @GetMapping("/getMyInformation")
+    public UserInformation getMyInfoMation(Principal pl){
+        try {
+            return userInformationService.getUserInfomationByUsername(pl);
+        }catch (Exception e){
+            return new UserInformation();
         }
     }
 }
