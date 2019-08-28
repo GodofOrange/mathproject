@@ -3,7 +3,7 @@ package org.just.computer.mathproject.Entity.Team;
 import javax.persistence.*;
 
 /**
- * 比赛表
+ * 团队表
  */
 @Entity(name="Team")
 public class Team {
