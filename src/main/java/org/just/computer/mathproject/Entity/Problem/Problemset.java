@@ -10,7 +10,7 @@ public class Problemset {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",columnDefinition="bigint COMMENT '主键，自动生成'")
     private Integer id;
-    @Column(name = "title",columnDefinition="varchar(32)")
+    @Column(name = "title",unique = true,columnDefinition="varchar(32)")
     private String title;
     @Column(name = "level",columnDefinition="varchar(32)")
     private String level;
