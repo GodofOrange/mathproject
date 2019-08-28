@@ -17,11 +17,12 @@ public class ProblemAnswerService {
         return problemanswerResp.findAll();
     }
 
-    public void addProblemAnswer(Integer problemsetid,Integer score,String body){
+    public void addProblemAnswer(Integer problemsetid,Integer score,String body,String username){
         ProblemAnswer problemAnswer=new ProblemAnswer();
         problemAnswer.setProblemsetid(problemsetid);
         problemAnswer.setScore(score);
         problemAnswer.setBody(body);
+        problemAnswer.setUsername(username);
         problemanswerResp.save(problemAnswer);
 
     }

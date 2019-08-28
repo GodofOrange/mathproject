@@ -7,6 +7,7 @@ import org.just.computer.mathproject.Service.Problem.ProblemAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -24,9 +25,9 @@ public class ProblemAnswerController {
 
     @ApiOperation(value = "添加提交答案")
     @PostMapping("/addProblemAnswer")
-    public Boolean getAllProblemAnswer(@RequestParam Integer problemsetid,@RequestParam Integer score, @RequestParam String body){
+    public Boolean getAllProblemAnswer(@RequestParam Integer problemsetid, @RequestParam Integer score, @RequestParam String body, Principal pl){
         try {
-            problemAnswerService.addProblemAnswer(problemsetid,score,body);
+            problemAnswerService.addProblemAnswer(problemsetid,score,body,pl.getName());
             return true;
         }catch (Exception e){
             return false;
