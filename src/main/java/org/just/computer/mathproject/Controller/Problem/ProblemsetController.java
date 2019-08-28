@@ -38,7 +38,7 @@ public class ProblemsetController {
 
     @ApiOperation(value = "删除题目")
     @GetMapping("/deleteProblemset")
-    public Boolean deleProblemsetById(Integer id){
+    public Boolean deleteProblemsetById(Integer id){
         try{
             problemsetService.deleteProblemsetById(id);
             return true;

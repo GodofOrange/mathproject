@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 回复表
  */
-@Entity(name="Response ")
+@Entity(name="Response")
 public class Response {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
