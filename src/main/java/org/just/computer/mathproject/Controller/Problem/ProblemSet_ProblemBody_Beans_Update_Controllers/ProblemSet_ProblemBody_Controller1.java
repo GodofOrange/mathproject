@@ -5,10 +5,9 @@ import io.swagger.annotations.ApiOperation;
 import org.just.computer.mathproject.Service.Problem.ProblemSet_ProblemBody_services.ProblemSet_ProblemBody_Service;
 import org.just.computer.mathproject.Service.Problem.ProblemSet_ProblemBody_services.ProblemSet_ProblemBody_Service1;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @Api(tags ="题目/用户")
@@ -18,10 +17,17 @@ public class ProblemSet_ProblemBody_Controller1 {
     ProblemSet_ProblemBody_Service1 problemSet_problemBody_service1;
 
     @ApiOperation(value = "添加题目")
-    @GetMapping("/addProblem")
-    public Boolean getProblem(@RequestParam String title,@RequestParam String level,@RequestParam String body,@RequestParam String answer,@RequestParam String kind){
+    @PostMapping("/addProblem")
+    public Boolean addProblem(
+            @RequestBody Map<String,Object> params){
         try {
-            problemSet_problemBody_service1.addNewProblemByUser(title,level,body,answer,kind);
+            problemSet_problemBody_service1.addNewProblemByUser(
+                    params.get("title").toString(),
+                    params.get("level").toString(),
+                    params.get("body").toString(),
+                    params.get("answer").toString(),
+                    params.get("kind").toString(),
+                    params.get("standard").toString());
             return true;
         }catch (Exception e){
             return false;
