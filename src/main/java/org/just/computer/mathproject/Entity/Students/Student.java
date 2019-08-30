@@ -3,18 +3,18 @@ package org.just.computer.mathproject.Entity.Students;
 import javax.persistence.*;
 
 /**
- * 学生班级表
+ * 学生表
  */
-@Entity(name="Studentclass")
-public class StudentClass {
+@Entity(name="Student")
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",columnDefinition="bigint COMMENT '主键，自动生成'")
     private Integer id;
-    @Column(name = "userid",columnDefinition="bigint")
+    @Column(name = "userid",unique = true,columnDefinition="bigint")
     private Integer userid;
-    @Column(name = "classid",columnDefinition="bigint")
-    private Integer classid;
+    @Column(name = "vip",columnDefinition="tinyint(1)")
+    private Integer vip;
 
     public Integer getId() {
         return id;
@@ -32,12 +32,11 @@ public class StudentClass {
         this.userid = userid;
     }
 
-    public Integer getClassid() {
-        return classid;
+    public Integer getVip() {
+        return vip;
     }
 
-    public void setClassid(Integer classid) {
-        this.classid = classid;
+    public void setVip(Integer vip) {
+        this.vip = vip;
     }
-
 }
