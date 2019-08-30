@@ -21,13 +21,13 @@ public class ArticleService {
         return articleResp.findAll();
     }
 
-    public void addArticle(Principal pl,String title, String content, Integer userid, Integer enabled) {
+    public void addArticle(Principal pl,String title, String content) {
         Article article=new Article();
         User user= userDao.findUserByUsername(pl.getName());
         article.setTitle(title);
         article.setContent(content);
         article.setUserid(user.getId());
-        article.setEnabled(enabled);
+        article.setEnabled(1);
         article.setTime(new Date());
         articleResp.save(article);
     }

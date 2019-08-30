@@ -26,15 +26,15 @@ public class ArticleController {
 
     @ApiOperation(value = "添加文章")
     @PostMapping("/addArticle")
-    public Boolean getAllArticle(Principal pl, @RequestBody Map<String, Object> params,Integer userid,Integer enabled) {
+    public Boolean getAllArticle(Principal pl, @RequestBody Map<String, Object> params) {
         try {
             articleService.addArticle(pl,
                     params.get("title").toString(),
-                    params.get("content").toString(),
-                    userid,enabled
+                    params.get("content").toString()
                     );
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
