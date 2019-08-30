@@ -6,6 +6,8 @@ import org.just.computer.mathproject.Service.Problem.ProblemSet_ProblemBody_serv
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @Api(tags ="题目/管理员")
 @RequestMapping("/ProblemSet_ProblemBody_Controller/")
@@ -14,10 +16,17 @@ public class ProblemSet_ProblemBody_Controller {
     ProblemSet_ProblemBody_Service problemSet_problemBody_service;
 
     @ApiOperation(value = "添加题目")
-    @GetMapping("/addProblem")
-    public Boolean getProblem(@RequestParam String title,@RequestParam String level,@RequestParam String body,@RequestParam String answer,@RequestParam String kind){
+    @PostMapping("/addProblem")
+    public Boolean addProblem(
+            @RequestBody Map<String,Object> params){
         try {
-            problemSet_problemBody_service.addNewProblemByAdmin(title,level,body,answer,kind);
+            problemSet_problemBody_service.addNewProblemByAdmin(
+                    params.get("title").toString(),
+                    params.get("level").toString(),
+                    params.get("body").toString(),
+                    params.get("answer").toString(),
+                    params.get("kind").toString(),
+                    params.get("standard").toString());
             return true;
         }catch (Exception e){
             return false;

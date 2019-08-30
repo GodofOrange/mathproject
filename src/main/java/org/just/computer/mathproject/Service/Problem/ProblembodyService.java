@@ -20,8 +20,9 @@ public class ProblembodyService {
         return problembodyResp.findByProblemsetidEquals(id);
     }
 
-    public void addProblembody(Integer problemsetid,String body,String answer,String kind){
+    public void addProblembody(Integer problemsetid,String body,String answer,String kind,String standard){
         Problembody problembody=new Problembody();
+        problembody.setStandard(standard);
         problembody.setProblemsetid(problemsetid);
         problembody.setBody(body);
         problembody.setAnswer(answer);

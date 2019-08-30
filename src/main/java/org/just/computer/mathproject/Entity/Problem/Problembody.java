@@ -14,13 +14,24 @@ public class Problembody {
     private Integer problemsetid;
     @Column(name = "body",columnDefinition="longtext")
     private String body;
-    @Column(name = "answer",columnDefinition="text")
+    @Column(name = "standard",columnDefinition = "text")
+    private String standard;
+    @Column(name = "answer",columnDefinition="longtext")
     private String answer;
+    //1为选填 2为证明
     @Column(name = "kind",columnDefinition = "varchar(32)")
     private String kind;
 
     public Integer getId() {
         return id;
+    }
+
+    public String getStandard() {
+        return standard;
+    }
+
+    public void setStandard(String standard) {
+        this.standard = standard;
     }
 
     public void setId(Integer id) {

@@ -29,9 +29,9 @@ public class ProblembodyController {
     }
     @ApiOperation(value = "添加题目主体")
     @PostMapping("/addProblembody")
-    public Boolean getAllProblembody(@RequestParam Integer problemsetid,@RequestParam String body,@RequestParam String answer,@RequestParam String kind){
+    public Boolean getAllProblembody(@RequestParam Integer problemsetid,@RequestParam String body,@RequestParam String answer,@RequestParam String kind,@RequestParam String standard){
         try {
-            problembodyService.addProblembody(problemsetid,body,answer,kind);
+            problembodyService.addProblembody(problemsetid,body,answer,kind,standard);
             return true;
         }catch (Exception e){
             return false;

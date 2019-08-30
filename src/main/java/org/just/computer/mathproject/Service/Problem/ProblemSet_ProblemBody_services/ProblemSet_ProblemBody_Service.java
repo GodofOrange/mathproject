@@ -13,7 +13,7 @@ public class ProblemSet_ProblemBody_Service {
     ProblemsetResp problemsetResp;
     @Autowired
     ProblembodyResp problembodyResp;
-    public void addNewProblemByAdmin(String title,String level,String body,String answer,String kind){
+    public void addNewProblemByAdmin(String title,String level,String body,String answer,String kind,String standard){
         Problemset problemset = new Problemset();
         problemset.setEnabled(1);
         problemset.setLevel(level);
@@ -25,6 +25,7 @@ public class ProblemSet_ProblemBody_Service {
         problembody.setProblemsetid(problemset.getId());
         problembody.setBody(body);
         problembody.setKind(kind);
+        problembody.setStandard(standard);
         problembodyResp.save(problembody);
     }
 }
