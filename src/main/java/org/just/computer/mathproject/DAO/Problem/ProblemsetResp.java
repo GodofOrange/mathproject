@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProblemsetResp extends JpaRepository<Problemset,Integer> {
     Problemset findByTitleEquals(String title);
+    Problemset findByIdEquals(Integer id);
 }
