@@ -12,7 +12,7 @@ public class ExampleBody {
     @Column(name = "id",columnDefinition="bigint COMMENT '主键，自动生成'")
     private Integer id;
 
-    @Column(name = "exampleid",columnDefinition="bigint")
+    @Column(name = "exampleid",unique = true,columnDefinition="bigint")
     private Integer exampleid;
 
     @Column(name = "body",columnDefinition="longtext")

@@ -7,39 +7,45 @@ import org.just.computer.mathproject.Service.Article.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@Api(tags ="文章")
+@Api(tags = "文章")
 @RequestMapping("/Article/")
 public class ArticleController {
     @Autowired
     ArticleService articleService;
 
-    @ApiOperation(value ="获得所有文章")
+    @ApiOperation(value = "获得所有文章")
     @GetMapping("/getAllArticle")
-    public List<Article> getAllArticle(){
+    public List<Article> getAllArticle() {
         return articleService.getAllArticle();
     }
 
     @ApiOperation(value = "添加文章")
     @PostMapping("/addArticle")
-    public Boolean getAllArticle(@RequestParam String title, @RequestParam String content, @RequestParam Integer userid,@RequestParam Integer enabled){
+    public Boolean getAllArticle(Principal pl, @RequestBody Map<String, Object> params,Integer userid,Integer enabled) {
         try {
-            articleService.addArticle(title,content,userid,enabled);
+            articleService.addArticle(pl,
+                    params.get("title").toString(),
+                    params.get("content").toString(),
+                    userid,enabled
+                    );
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     @ApiOperation(value = "删除文章")
     @GetMapping("/deleteArticle")
-    public Boolean deleteArticleById(Integer id){
-        try{
+    public Boolean deleteArticleById(Integer id) {
+        try {
             articleService.deleteArticleById(id);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }

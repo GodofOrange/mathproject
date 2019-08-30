@@ -22,6 +22,9 @@ public class ChapterService {
         chapter.setTitle(title);
         chapterResp.save(chapter);
     }
+    public List<Chapter> findAllByBookid(Integer id){
+        return chapterResp.findAllByBookidEquals(id);
+    }
 
     public void deleteChapterById(Integer id){
         chapterResp.deleteById(id);

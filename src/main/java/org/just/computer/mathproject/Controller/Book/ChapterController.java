@@ -36,6 +36,12 @@ public class ChapterController {
         }
     }
 
+    @ApiOperation(value ="按书名id查找章节")
+    @GetMapping("/findAllByBookid")
+    public List<Chapter> findAllByBookid(Integer id){
+        return chapterService.findAllByBookid(id);
+    }
+
     @ApiOperation(value = "删除章节")
     @GetMapping("/deleteChapter")
     public Boolean deleteChapterById(Integer id){

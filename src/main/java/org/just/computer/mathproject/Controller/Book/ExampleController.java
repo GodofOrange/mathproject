@@ -36,6 +36,12 @@ public class ExampleController {
         }
     }
 
+    @ApiOperation(value ="按章节id查找例题")
+    @GetMapping("/findAllByChapterid")
+    public List<Example> findAllByChapterid(Integer id){
+        return exampleService.findAllByChapterid(id);
+    }
+
     @ApiOperation(value = "删除例题")
     @GetMapping("/deleteExample")
     public Boolean deleteExampleById(Integer id){

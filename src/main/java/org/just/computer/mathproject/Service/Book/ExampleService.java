@@ -23,6 +23,10 @@ public class ExampleService {
         exampleResp.save(example);
     }
 
+    public List<Example> findAllByChapterid(Integer id){
+        return exampleResp.findAllByChapteridEquals(id);
+    }
+
     public void deleteExampleById(Integer id){
         exampleResp.deleteById(id);
     }
