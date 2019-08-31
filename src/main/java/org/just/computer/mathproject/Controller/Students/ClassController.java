@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -27,9 +28,9 @@ public class ClassController {
 
     @ApiOperation(value = "添加班级")
     @GetMapping("/addClass")
-    public Boolean getAllClass(@RequestParam Integer teacherid, @RequestParam String classname){
+    public Boolean getAllClass(Principal pl, @RequestParam String classname){
         try {
-            classService.addClass(teacherid,classname);
+            classService.addClass(pl.getName(),classname);
             return true;
         }catch (Exception e){
             return false;

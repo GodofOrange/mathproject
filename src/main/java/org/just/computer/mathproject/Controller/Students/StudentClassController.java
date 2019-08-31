@@ -2,6 +2,7 @@ package org.just.computer.mathproject.Controller.Students;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.just.computer.mathproject.Bean.UserClass;
 import org.just.computer.mathproject.Entity.Students.StudentClass;
 import org.just.computer.mathproject.Service.Students.StudentClassService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.xml.bind.PrintConversionEvent;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -35,7 +38,16 @@ public class StudentClassController {
             return false;
         }
     }
-
+    @ApiOperation(value = "根据班级号加入班级")
+    @GetMapping("/joinClassByClassId")
+    public boolean joinClassByClassId(@RequestParam Integer classid, Principal pl){
+        try{
+            studentClassService.joinClassByClassId(classid,pl.getName());
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
     @ApiOperation(value = "删除学生班级关系")
     @GetMapping("/deleteStudentClass")
     public Boolean deleteStudentClassById(Integer id){
@@ -45,5 +57,10 @@ public class StudentClassController {
         }catch (Exception e){
             return false;
         }
+    }
+    @ApiOperation(value = "")
+    @GetMapping("/getUserClass")
+    public List<UserClass> getUserClass(Principal pl){
+        return studentClassService.getUserClass(pl.getName());
     }
 }

@@ -18,8 +18,8 @@ public class Article {
     private String title;
     @Column(name = "content",columnDefinition="longtext")
     private String content;
-    @Column(name = "userid",columnDefinition="bigint")
-    private Integer userid;
+    @Column(name = "userid",columnDefinition="text")
+    private String userid;
     @Column(name = "enabled",columnDefinition="tinyint(1)")
     private Integer enabled;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -49,11 +49,11 @@ public class Article {
         this.content = content;
     }
 
-    public Integer getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 

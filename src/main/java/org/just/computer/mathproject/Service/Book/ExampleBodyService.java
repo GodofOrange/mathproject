@@ -24,7 +24,9 @@ public class ExampleBodyService {
         exampleBody.setAnswer(answer);
         exampleBodyResp.save(exampleBody);
     }
-
+    public ExampleBody getExampleBodyByExampleId(Integer id){
+        return exampleBodyResp.findByExampleidEquals(id);
+    }
     public void deleteExampleBodyById(Integer id){
         exampleBodyResp.deleteById(id);
     }

@@ -20,16 +20,6 @@ public class ProblemAnswer {
     @Column(name = "username",columnDefinition = "varchar(255)")
     private String username;
 
-    private String standard;
-
-    public String getStandard() {
-        return standard;
-    }
-
-    public void setStandard(String standard) {
-        this.standard = standard;
-    }
-
     public String getUsername() {
         return username;
     }

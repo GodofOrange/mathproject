@@ -15,18 +15,15 @@ import java.util.List;
 public class ArticleService {
     @Autowired
     ArticleResp articleResp;
-    @Autowired
-    UserDao userDao;
     public List<Article> getAllArticle() {
         return articleResp.findAll();
     }
 
     public void addArticle(Principal pl,String title, String content) {
         Article article=new Article();
-        User user= userDao.findUserByUsername(pl.getName());
         article.setTitle(title);
         article.setContent(content);
-        article.setUserid(user.getId());
+        article.setUserid(pl.getName());
         article.setEnabled(1);
         article.setTime(new Date());
         articleResp.save(article);

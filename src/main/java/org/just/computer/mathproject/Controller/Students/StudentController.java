@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -27,15 +28,24 @@ public class StudentController {
 
     @ApiOperation(value = "添加学生")
     @GetMapping("/addStudent")
-    public Boolean getAllStudent(@RequestParam Integer userid, @RequestParam Integer vip){
+    public Boolean getAllStudent(Principal pl){
         try {
-            studentService.addStudent(userid,vip);
+            studentService.addStudent(pl.getName());
             return true;
         }catch (Exception e){
             return false;
         }
     }
-
+    @ApiOperation("成为VIP")
+    @GetMapping("/toBeVip")
+    public Boolean TobeVip(Principal pl){
+        try {
+            studentService.toBeVip(pl.getName());
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
     @ApiOperation(value = "删除学生")
     @GetMapping("/deleteStudent")
     public Boolean deleteStudentById(Integer id){

@@ -43,4 +43,10 @@ public class ExampleBodyController {
             return false;
         }
     }
+
+    @ApiOperation(value = "根据ExampleID查找主体")
+    @GetMapping("/getExamPleBodyById")
+    public ExampleBody getExampleBodyById(@RequestParam Integer exampleid){
+        return exampleBodyService.getExampleBodyByExampleId(exampleid);
+    }
 }
