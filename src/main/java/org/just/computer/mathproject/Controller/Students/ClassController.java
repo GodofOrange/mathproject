@@ -37,6 +37,16 @@ public class ClassController {
         }
     }
 
+    @ApiOperation(value = "获得我创建的所有班级")
+    @GetMapping("/getAllMyClass")
+    public List<_Class> getAllMyClass(Principal pl){
+        try {
+            return classService.getAllMyClass(pl.getName());
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     @ApiOperation(value = "删除班级")
     @GetMapping("/deleteClass")
     public Boolean deleteClassById(Integer id){

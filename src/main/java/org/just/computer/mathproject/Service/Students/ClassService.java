@@ -31,4 +31,9 @@ public class ClassService {
     public void deleteclassById(Integer id){
         classResp.deleteById(id);
     }
+    public List<_Class> getAllMyClass(String username){
+        Integer uid = userDao.findUserByUsername(username).getId();
+        Integer tid = teacherResp.findByUseridEquals(uid).getId();
+        return classResp.findAllByTeacheridEquals(tid);
+    }
 }

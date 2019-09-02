@@ -27,7 +27,7 @@ public class ProblemLabelController {
 
     @ApiOperation(value ="获得单个题目标签")
     @GetMapping("/getProblemLabel")
-    public ProblemLabel getProblemLabel(Integer id){
+    public List<ProblemLabel> getProblemLabel(Integer id){
         return problemLabelService.getProblemLableById(id);
     }
 

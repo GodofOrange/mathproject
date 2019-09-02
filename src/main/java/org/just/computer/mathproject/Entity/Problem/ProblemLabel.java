@@ -12,6 +12,16 @@ public class ProblemLabel {
     private Integer id;
     @Column(name = "name",columnDefinition = "varchar(32)")
     private String name;
+    @Column(name = "problemsetid",columnDefinition = "bigint")
+    private Integer problemsetid;
+
+    public Integer getProblemsetid() {
+        return problemsetid;
+    }
+
+    public void setProblemsetid(Integer problemsetid) {
+        this.problemsetid = problemsetid;
+    }
 
     public Integer getId() {
         return id;

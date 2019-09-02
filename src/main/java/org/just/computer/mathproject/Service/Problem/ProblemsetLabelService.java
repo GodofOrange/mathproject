@@ -17,8 +17,8 @@ public class ProblemsetLabelService {
     public List<ProblemsetLabel> getAllProblemsetLabel() {
         return problemsetlabelResp.findAll();
     }
-    public ProblemsetLabel getProblemsetLableById(Integer id){
-        return problemsetlabelResp.findByIdEquals(id);
+    public List<ProblemsetLabel> getProblemsetLableById(Integer id){
+        return problemsetlabelResp.findByProblemlabelidEquals(id);
     }
 
     public void addProblemsetLabel(Integer problemsetid,Integer problemlabelid) {

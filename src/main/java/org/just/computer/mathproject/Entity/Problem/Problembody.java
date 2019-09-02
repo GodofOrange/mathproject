@@ -21,6 +21,16 @@ public class Problembody {
     //1为选填 2为证明
     @Column(name = "kind",columnDefinition = "varchar(32)")
     private String kind;
+    @Column(name = "uploadUsername",columnDefinition = "varchar(255)")
+    private String uploadUsername;
+
+    public String getUploadUsername() {
+        return uploadUsername;
+    }
+
+    public void setUploadUsername(String uploadUsername) {
+        this.uploadUsername = uploadUsername;
+    }
 
     public Integer getId() {
         return id;
