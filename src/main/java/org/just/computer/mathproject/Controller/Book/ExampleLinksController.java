@@ -2,6 +2,7 @@ package org.just.computer.mathproject.Controller.Book;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.just.computer.mathproject.Bean.ExampleLinksBean;
 import org.just.computer.mathproject.Entity.Book.ExampleLinks;
 import org.just.computer.mathproject.Service.Book.ExampleLinksService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class ExampleLinksController {
     @GetMapping("/getAllExampleLinksById")
     public List<ExampleLinks> getAllExample(@RequestParam Integer id){
         return exampleLinksService.getExampleLinksByexampleid(id);
+    }
+    @ApiOperation(value ="获得所有例题+名字")
+    @GetMapping("/getAllExampleLinksNameById")
+    public List<ExampleLinksBean> getAllExampleLinksNameById(@RequestParam Integer id){
+        return exampleLinksService.getExampleNamesByExampleid(id);
     }
 }
