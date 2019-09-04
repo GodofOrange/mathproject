@@ -5,8 +5,10 @@ import io.swagger.annotations.ApiOperation;
 import org.just.computer.mathproject.Entity.Comment.ProblemComment;
 import org.just.computer.mathproject.Service.Comment.ProblemCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.parsing.Problem;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -24,15 +26,19 @@ public class ProblemCommentController {
 
     @ApiOperation(value = "添加问题评论")
     @PostMapping("/addProblemComment")
-    public Boolean getAllProblemComment(@RequestParam String content, @RequestParam String username, @RequestParam Integer problemsetid){
+    public Boolean getAllProblemComment(@RequestParam String content, Principal pl, @RequestParam Integer problemsetid){
         try {
-            problemCommentService.addProblemComment(content,username,problemsetid);
+            problemCommentService.addProblemComment(content,pl.getName(),problemsetid);
             return true;
         }catch (Exception e){
             return false;
         }
     }
-
+    @ApiOperation(value = "通过问题id，查找评论")
+    @GetMapping("/getCommentByProblemsetId")
+    public List<ProblemComment> findAllProblemCommentByid(@RequestParam Integer id){
+        return problemCommentService.findAllCommentByProblemsetid(id);
+    }
     @ApiOperation(value = "删除问题评论")
     @GetMapping("/deleteProblemComment")
     public Boolean deleteProblemCommentById(Integer id){

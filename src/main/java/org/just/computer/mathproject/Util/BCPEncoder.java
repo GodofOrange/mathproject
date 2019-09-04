@@ -8,7 +8,4 @@ public class BCPEncoder {
         str = encoder.encode(str);
         return str;
     }
-    public static void main(String[] args){
-        System.out.println(encode("123"));
-    }
 }

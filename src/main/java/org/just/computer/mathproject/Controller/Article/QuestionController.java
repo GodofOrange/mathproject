@@ -7,7 +7,9 @@ import org.just.computer.mathproject.Service.Article.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Api(tags ="问题")
@@ -24,9 +26,9 @@ public class QuestionController {
 
     @ApiOperation(value = "添加问题")
     @PostMapping("/addQuestion")
-    public Boolean getAllQuestion(@RequestParam String title, @RequestParam String content, @RequestParam String username, @RequestParam Integer enabled){
+    public Boolean addNewQuestion(@RequestBody Map<String,Object> params, Principal pl){
         try {
-            questionService.addQuestion(title,content,username,enabled);
+            questionService.addQuestion(params.get("title").toString(),params.get("content").toString(),pl.getName(),0);
             return true;
         }catch (Exception e){
             return false;
@@ -43,5 +45,9 @@ public class QuestionController {
             return false;
         }
     }
-
+    @ApiOperation(value = "我问过的问题")
+    @GetMapping("/getMyQuestion")
+    public List<Question> getMyQuestion(Principal pl){
+        return questionService.getMyQuestion(pl.getName());
+    }
 }

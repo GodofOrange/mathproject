@@ -25,7 +25,9 @@ public class CommentReplyService {
         commentReply.setProblemcommentid(problemcommentid);
         commentReplyResp.save(commentReply);
     }
-
+    public List<CommentReply> getAllCommentReplyById(Integer id){
+        return commentReplyResp.findAllByProblemcommentidEquals(id);
+    }
     public void deleteCommentReplyById(Integer id){
         commentReplyResp.deleteById(id);
     }

@@ -25,7 +25,9 @@ public class ProblemCommentService {
         problemComment.setProblemsetid(problemsetid);
         problemCommentResp.save(problemComment);
     }
-
+    public List<ProblemComment> findAllCommentByProblemsetid(Integer id){
+        return problemCommentResp.findAllByProblemsetidEquals(id);
+    }
     public void deleteProblemCommentById(Integer id){
         problemCommentResp.deleteById(id);
     }

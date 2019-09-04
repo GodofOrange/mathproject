@@ -26,7 +26,9 @@ public class QuestionService {
         question.setEnabled(enabled);
         questionResp.save(question);
     }
-
+    public List<Question> getMyQuestion(String username){
+        return questionResp.findAllByUsernameEquals(username);
+    }
     public void deleteQuestionById(Integer id){
         questionResp.deleteById(id);
     }

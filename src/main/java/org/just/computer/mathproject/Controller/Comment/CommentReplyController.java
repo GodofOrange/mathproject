@@ -7,6 +7,7 @@ import org.just.computer.mathproject.Service.Comment.CommentReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -24,15 +25,19 @@ public class CommentReplyController {
 
     @ApiOperation(value = "添加评论回复")
     @PostMapping("/addCommentReply")
-    public Boolean getAllCommentReply(@RequestParam String content, @RequestParam String username, @RequestParam Integer problemcommentid){
+    public Boolean getAllCommentReply(@RequestParam String content, Principal pl, @RequestParam Integer problemcommentid){
         try {
-            commentReplyService.addCommentReply(content,username,problemcommentid);
+            commentReplyService.addCommentReply(content,pl.getName(),problemcommentid);
             return true;
         }catch (Exception e){
             return false;
         }
     }
-
+    @ApiOperation(value = "获得所有评论的id")
+    @GetMapping("/getAllCommentReplyByid")
+    public List<CommentReply> getAllCommentReplyById(Integer id) {
+        return commentReplyService.getAllCommentReplyById(id);
+    }
     @ApiOperation(value = "删除评论回复")
     @GetMapping("/deleteCommentReply")
     public Boolean deleteCommentReplyById(Integer id){
