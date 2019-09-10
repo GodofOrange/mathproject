@@ -30,9 +30,11 @@ public class ProblemSet_ProblemBody_Controller1 {
                     params.get("answer").toString(),
                     params.get("kind").toString(),
                     params.get("standard").toString(),
-                    (List<String>) params.get("labels"),pl.getName());
+                    (List<String>) params.get("labels"),pl.getName(),
+                    (List<Integer>)params.get("classify"));
             return true;
         }catch (Exception e){
+            e.printStackTrace();
             return false;
         }
     }
