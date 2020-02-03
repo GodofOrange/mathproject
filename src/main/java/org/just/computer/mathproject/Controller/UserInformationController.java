@@ -3,6 +3,7 @@ package org.just.computer.mathproject.Controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.just.computer.mathproject.Entity.UserInformation;
+import org.just.computer.mathproject.Entity.users.User;
 import org.just.computer.mathproject.Service.UserInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -75,5 +76,10 @@ public class UserInformationController {
         }catch (Exception e){
             return null;
         }
+    }
+    @ApiOperation(value= "获取用户id+名字")
+    @GetMapping("/getUserIdName")
+    public List<User> getUserIdName(){
+        return userInformationService.getUserInformationOfIdName();
     }
 }

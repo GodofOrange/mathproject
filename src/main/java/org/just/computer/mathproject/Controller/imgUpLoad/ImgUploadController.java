@@ -25,13 +25,14 @@ public class ImgUploadController {
         }
         String oldName = uploadFile.getOriginalFilename();
         String newName = UUID.randomUUID().toString()+oldName.substring(oldName.lastIndexOf("."),oldName.length());
+        /*
         try{
             uploadFile.transferTo(new File(folder,newName));
             String filePath = req.getScheme() + "://"+req.getServerName()+":"+req.getServerPort()+"/uploadFile/"+format+"/"+newName;
             return filePath;
         }catch (IOException e){
             e.printStackTrace();
-        }
+        }*/
         return "上传失败";
     }
 }

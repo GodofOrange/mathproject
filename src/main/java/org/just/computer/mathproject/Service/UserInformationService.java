@@ -58,4 +58,8 @@ public class UserInformationService {
     public UserInformation getUserInfomationByUsername(Principal pl){
         return userInformationResp.findByUseridEquals(userDao.findUserByUsername(pl.getName()).getId());
     }
+    public List<User> getUserInformationOfIdName(){
+        return userDao.findAllNameId();
+    }
+
 }
