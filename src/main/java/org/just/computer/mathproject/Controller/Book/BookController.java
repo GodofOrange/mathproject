@@ -24,7 +24,7 @@ public class BookController {
 
     @ApiOperation(value = "添加书")
     @GetMapping("/addBook")
-    public Boolean getAllArticle(@RequestParam String title){
+    public Boolean getAllBook(@RequestParam String title){
         try {
             bookService.addBook(title);
             return true;
